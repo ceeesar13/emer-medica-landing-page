@@ -1,10 +1,9 @@
 import { Router } from 'express';
 import { submitLead } from '../controllers/leadController';
-import { validateLeadData } from '../middleware/validation';
-import { validateSecretKey } from '../middleware/auth';
+import { validateLeadForm } from '../middleware/validation';
 
 const router = Router();
 
-router.post('/lead', validateLeadData, submitLead);
+router.post('/lead', validateLeadForm, submitLead);
 
 export default router; 
