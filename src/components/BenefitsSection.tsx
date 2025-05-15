@@ -1,83 +1,102 @@
 import React from 'react';
-import { Home, Monitor, Ambulance, Clock, Stethoscope, HeartPulse } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-interface BenefitCardProps {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-}
-
-const BenefitCard: React.FC<BenefitCardProps> = ({ title, description, icon }) => {
-  return (
-    <motion.div
-      whileHover={{ y: -10, scale: 1.03 }}
-      transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-      className="flex flex-col items-center text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all"
-    >
-      <div className="mb-6 text-[#003366] group-hover:scale-110 transition-transform duration-300">
-        {icon}
-      </div>
-      <h3 className="text-xl font-bold text-[#003366] mb-2">{title}</h3>
-      <p className="text-gray-600 text-base">{description}</p>
-    </motion.div>
-  );
-};
+const benefits = [
+  {
+    icon: "🏥",
+    title: "Atención Médica 24/7",
+    description: "Acceso a servicios médicos las 24 horas del día, los 7 días de la semana."
+  },
+  {
+    icon: "🚑",
+    title: "Ambulancia Dedicada",
+    description: "Traslados asistidos con personal médico especializado."
+  },
+  {
+    icon: "👨‍⚕️",
+    title: "Médicos Especialistas",
+    description: "Red de profesionales médicos altamente calificados."
+  },
+  {
+    icon: "💊",
+    title: "Medicamentos",
+    description: "Entrega de medicamentos en la puerta de tu casa."
+  },
+  {
+    icon: "📱",
+    title: "Telemedicina",
+    description: "Consultas médicas virtuales desde la comodidad de tu hogar."
+  },
+  {
+    icon: "🏠",
+    title: "Visitas Domiciliarias",
+    description: "Atención médica personalizada en tu hogar."
+  }
+];
 
 const BenefitsSection: React.FC = () => {
-  const benefits = [
-    {
-      title: "Atención médica domiciliaria 24/7",
-      description: "Médicos especializados en tu hogar a cualquier hora del día o noche.",
-      icon: <Home size={48} strokeWidth={1.2} />
-    },
-    {
-      title: "Telemedicina inmediata",
-      description: "Consultas virtuales con médicos especializados sin salir de casa.",
-      icon: <Monitor size={48} strokeWidth={1.2} />
-    },
-    {
-      title: "Ambulancias medicalizadas",
-      description: "Flota equipada y personal capacitado para emergencias reales.",
-      icon: <Ambulance size={48} strokeWidth={1.2} />
-    },
-    {
-      title: "Urgencias médicas rápidas",
-      description: "Respuesta inmediata en situaciones críticas de salud.",
-      icon: <Clock size={48} strokeWidth={1.2} />
-    },
-    {
-      title: "Consulta médica general",
-      description: "Cuida tu salud y la de tu familia con médicos de confianza.",
-      icon: <Stethoscope size={48} strokeWidth={1.2} />
-    },
-    {
-      title: "Cuidado para mascotas",
-      description: "Atención veterinaria en casa para tus compañeros más fieles.",
-      icon: <HeartPulse size={48} strokeWidth={1.2} />
-    },
-  ];
-
   return (
-    <section className="bg-gray-50 py-20">
-      <div className="section-container text-center px-6">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[#003366] mb-6 leading-tight">
-          Servicios pensados para proteger lo más valioso: <br />tu salud y la de tu familia
-        </h2>
-        <p className="text-lg md:text-xl text-gray-700 mb-12 max-w-3xl mx-auto">
-          Estamos contigo cuando más lo necesitas, con atención médica integral, humana y oportuna.
-        </p>
+    <section className="bg-gradient-to-b from-gray-50 to-white py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-[#003366] mb-4">
+            Beneficios de tu Plan Emermédica
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Accede a una amplia red de servicios médicos diseñados para cuidar de ti y tu familia
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <BenefitCard
+            <motion.div
               key={index}
-              title={benefit.title}
-              description={benefit.description}
-              icon={<div className="text-[#28a745]">{benefit.icon}</div>}
-            />
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-8 shadow-lg border border-[#003366]/10 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div className="text-4xl mb-4">{benefit.icon}</div>
+              <h3 className="text-xl font-bold text-[#003366] mb-3">
+                {benefit.title}
+              </h3>
+              <p className="text-gray-600">
+                {benefit.description}
+              </p>
+            </motion.div>
           ))}
         </div>
+
+        {/* Sección adicional de beneficios especiales */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-20 bg-gradient-to-r from-[#003366] to-[#003366]/90 rounded-3xl p-8 md:p-12 text-white"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold mb-2">33+</div>
+              <p className="text-white/90">Años de experiencia</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold mb-2">260K+</div>
+              <p className="text-white/90">Afiliados activos</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold mb-2">490K+</div>
+              <p className="text-white/90">Atenciones anuales</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

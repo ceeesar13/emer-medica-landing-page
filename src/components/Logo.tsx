@@ -1,10 +1,21 @@
-
 import React from 'react';
 
-const Logo: React.FC = () => {
+interface LogoProps {
+  className?: string;
+}
+
+const Logo: React.FC<LogoProps> = ({ className }) => {
   return (
-    <div className="flex items-center">
-      <img src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1745877968/emermedica-seeklogo_ax54ns.png" alt="Emermédica" className="h-12" />
+    <div className={`flex items-center ${className || ''}`}>
+      <img 
+        src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1745877968/emermedica-seeklogo_ax54ns.png" 
+        alt="Emermédica - Atención médica inmediata en casa y online 24/7" 
+        width="200"
+        height="60"
+        className="h-full w-auto"
+        loading="eager"
+        fetchPriority="high"
+      />
     </div>
   );
 };

@@ -1,75 +1,124 @@
-import React, { useState } from 'react';
-import { CheckCircle, X } from 'lucide-react';
-import { Dialog } from '@headlessui/react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { CheckCircle2 } from 'lucide-react';
+
+const reasons = [
+  {
+    title: "Cobertura Nacional",
+    description: "Presencia en las principales ciudades de Colombia con atención inmediata."
+  },
+  {
+    title: "Respaldo AXA Colpatria",
+    description: "El respaldo de una de las aseguradoras más importantes del país."
+  },
+  {
+    title: "33+ Años de Experiencia",
+    description: "Más de tres décadas cuidando la salud de los colombianos."
+  },
+  {
+    title: "Sin Preexistencias",
+    description: "No importa tu condición médica, te cubrimos desde el primer día."
+  },
+  {
+    title: "Sin Límite de Edad",
+    description: "Cobertura para toda la familia, sin importar la edad."
+  },
+  {
+    title: "Atención 24/7",
+    description: "Servicio médico disponible las 24 horas, los 365 días del año."
+  }
+];
 
 const WhyChooseSection: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const benefits = [
-    { text: "Cobertura nacional", highlight: "en Colombia" },
-    { text: "Respuesta ágil", highlight: "y personalizada" },
-    { text: "Atención por", highlight: "personal médico capacitado" },
-    { text: "Acceso a tu", highlight: "historia clínica digital" },
-    { text: "Planes pensados para", highlight: "familias y empresas" },
-    { text: "Más de", highlight: "28 años de experiencia" },
-    { text: "Respaldo de", highlight: "AXA COLPATRIA" },
-    { text: "Atención domiciliaria", highlight: "las 24 horas" },
-    { text: "Cobertura de urgencias", highlight: "en todo el país" },
-    { text: "Tecnología de punta", highlight: "para priorizar tu salud" },
-  ];
-
   return (
-    <section className="bg-[#003366] text-white py-20">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
-        {/* Imagen con popup */}
-        <div className="w-full lg:w-1/2 relative group cursor-pointer" onClick={() => setIsOpen(true)}>
-          <img
-            src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1745938565/beneficcs2_desrxw.png"
-            alt="Beneficios Emermédica"
-            className="rounded-xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
-          />
-          <p className="text-sm text-white/60 mt-2 text-center">Haz clic para ampliar</p>
-        </div>
+    <section className="bg-white py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Contenido de texto */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-[#003366] mb-6">
+              ¿Por qué elegir Emermédica?
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Somos líderes en atención médica domiciliaria y emergencias en Colombia, 
+              ofreciendo soluciones integrales para el cuidado de tu salud.
+            </p>
 
-        {/* Texto y beneficios */}
-        <div className="w-full lg:w-1/2">
-          <h2 className="text-5xl font-extrabold mb-5 leading-tight">
-            ¿Por qué elegir <span className="text-[#28a745]">Emermédica</span>?
-          </h2>
-          <p className="text-lg text-white/80 mb-6">
-            No solo te acompañamos en emergencias. Somos tu aliado constante en salud, con atención humana, tecnología médica y experiencia comprobada.
-          </p>
-          <ul className="space-y-5">
-            {benefits.map((item, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <CheckCircle size={24} className="text-[#28a745] mt-1" />
-                <span className="text-lg font-medium leading-snug">
-                  {item.text} <span className="text-[#28a745] font-semibold">{item.highlight}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {reasons.map((reason, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start space-x-4"
+                >
+                  <div className="flex-shrink-0">
+                    <CheckCircle2 className="w-6 h-6 text-[#28a745]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[#003366] mb-1">
+                      {reason.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {reason.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Imagen o ilustración */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1747266286/beneficcs2_1_k7wjcp.png"
+                alt="Equipo médico profesional de Emermédica brindando atención médica de calidad"
+                width="600"
+                height="600"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            
+            {/* Elementos decorativos */}
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-[#28a745]/10 rounded-full blur-2xl"></div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#003366]/10 rounded-full blur-2xl"></div>
+            
+            {/* Tarjeta flotante */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="absolute -bottom-8 -left-8 bg-white rounded-2xl p-6 shadow-xl border border-[#003366]/10"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-[#28a745]/10 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">👨‍⚕️</span>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-[#003366]">260K+</div>
+                  <p className="text-gray-600 text-sm">Afiliados activos</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-
-      {/* Modal de imagen ampliada */}
-      <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4">
-          <Dialog.Panel className="relative max-w-4xl w-full">
-            <img
-              src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1745938565/beneficcs2_desrxw.png"
-              alt="Beneficios Emermédica ampliado"
-              className="rounded-2xl w-full h-auto"
-            />
-            <button
-              className="absolute top-4 right-4 text-white hover:text-[#28a745]"
-              onClick={() => setIsOpen(false)}
-            >
-              <X size={32} />
-            </button>
-          </Dialog.Panel>
-        </div>
-      </Dialog>
     </section>
   );
 };

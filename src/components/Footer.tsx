@@ -1,99 +1,147 @@
 import React from 'react';
-import { PhoneCall } from 'lucide-react'; // asegúrate de tener esto arriba
-import { Mail, Phone, Instagram, Facebook } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-[#003366] text-white pt-6 pb-10">
-      <div className="section-container">
-
-        {/* Zona principal */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-10 mb-10 text-center md:text-left">
-
-          {/* Logo + Lema */}
-          <div className="flex flex-col items-center md:items-start gap-4">
+    <footer className="bg-[#003366] text-white">
+      {/* Sección principal del footer */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Logo y descripción */}
+          <div className="space-y-6">
             <img 
-              src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1745877797/emermedica-axa-logo_eudtvi.png" 
-              alt="AXA COLPATRIA" 
-              className="h-24 object-contain"
+              src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1747265883/emermedica-seeklogo_ax54ns_jxuylx.png"
+              alt="Emermedica Logo"
+              className="w-48"
             />
-            <p className="text-gray-300 text-sm max-w-xs">
-              Emermédica — Porque tu salud nos mueve
+            <p className="text-white/80 text-sm leading-relaxed">
+              Más de 33 años cuidando la salud de los colombianos con atención médica domiciliaria y emergencias.
             </p>
-          </div>
-
-          {/* Contacto y redes */}
-          <div className="flex flex-col items-center md:items-end gap-4">
-            <div className="flex flex-col gap-2 text-gray-300 text-sm">
-              {/*
-              <a href="mailto:info@emermedica.com.co" className="flex items-center justify-center md:justify-end hover:text-[#28a745] transition">
-                <Mail size={18} className="mr-2" />
-                info@emermedica.com.co
-              </a>
-              */}
-              <a href="tel:+573244208110" className="flex items-center justify-center md:justify-end hover:text-[#28a745] transition">
-                <Phone size={18} className="mr-2" />
-                +57 324 420 8110
-              </a>
-            </div>
-
-            {/* Redes sociales */}
-            <div className="flex gap-4 mt-2">
-              <a href="https://www.instagram.com/siempre_emermedica/" target="_blank" rel="noopener noreferrer" className="hover:text-[#28a745] transition">
-                <Instagram size={24} />
-              </a>
-              <a href="https://www.facebook.com/share/1BtWkGJELR/" target="_blank" rel="noopener noreferrer" className="hover:text-[#28a745] transition">
+            <div className="flex space-x-4">
+              <a
+                href="https://www.facebook.com/profile.php?id=61575648687380"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors"
+              >
                 <Facebook size={24} />
               </a>
-
-              <a href="https://wa.link/bu57jm" target="_blank" rel="noopener noreferrer" className="hover:text-[#28a745] transition">
-              <PhoneCall size={24} />
+              <a
+                href="https://www.instagram.com/siempre_emermedica/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <Instagram size={24} />
               </a>
-               {/*
-              <a href="https://wa.link/bu57jm" target="_blank" rel="noopener noreferrer" className="hover:text-[#28a745] transition">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-whatsapp">
-                  <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
-                  <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" />
-                  <path d="M13 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" />
-                  <path d="M9 14a5 5 0 0 0 6 0" />
-                </svg>
+              <a
+                href="https://www.linkedin.com/company/emermedica"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                <Linkedin size={24} />
               </a>
-           */}
             </div>
           </div>
-        </div>
 
-        {/* Línea divisoria + Legal 
-       
-        <div className="border-t border-white/20 pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 gap-4">
-          <p>© {currentYear} Emermédica. Todos los derechos reservados.</p>
-          <div className="flex gap-4">
-            <a href="#" className="hover:underline hover:text-white transition">Políticas de privacidad</a>
-            <a href="#" className="hover:underline hover:text-white transition">Términos y condiciones</a>
+          {/* Enlaces rápidos */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Enlaces Rápidos</h3>
+            <ul className="space-y-4">
+              <li>
+                <a href="#benefits" className="text-white/80 hover:text-white transition-colors">
+                  Beneficios
+                </a>
+              </li>
+              <li>
+                <a href="#why-choose" className="text-white/80 hover:text-white transition-colors">
+                  ¿Por qué elegirnos?
+                </a>
+              </li>
+              <li>
+                <a href="#coverage" className="text-white/80 hover:text-white transition-colors">
+                  Cobertura
+                </a>
+              </li>
+              <li>
+                <a href="#lead-form" className="text-white/80 hover:text-white transition-colors">
+                  Afíliate ahora
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contacto */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Contacto</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start space-x-3">
+                <Phone size={20} className="text-[#28a745] mt-1" />
+                <span className="text-white/80">Línea de atención: 324 420 8110</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <MapPin size={20} className="text-[#28a745] mt-1" />
+                <span className="text-white/80">
+                CR 19B No. 168 - 35, Bogotá D.C. Colombia
+                </span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <Mail size={20} className="text-[#28a745] mt-1" />
+                <a 
+                  href="mailto:servicioalcliente@siempremermedica.com" 
+                  className="text-white/80 hover:text-white transition-colors break-all"
+                >
+                  servicioalcliente@<br />siempremermedica.com
+                </a>
+              </li>      
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Legal</h3>
+            <ul className="space-y-4">
+              <li>
+                <a href="/terminos" className="text-white/80 hover:text-white transition-colors">
+                  Términos y Condiciones
+                </a>
+              </li>
+              <li>
+                <a href="/privacidad" className="text-white/80 hover:text-white transition-colors">
+                  Política de Privacidad
+                </a>
+              </li>
+              <li>
+                <a href="/cookies" className="text-white/80 hover:text-white transition-colors">
+                  Política de Cookies
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      */}
-      
-      <div className="border-t border-white/20 pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 gap-4">
-  <p>© {currentYear} Emermédica. Todos los derechos reservados.</p>
-  <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-    <a href="#" className="hover:underline hover:text-white transition">Políticas de privacidad</a>
-    <a href="#" className="hover:underline hover:text-white transition">Términos y condiciones</a>
-    <span className="text-gray-400 hidden md:inline">|</span>
-    <a 
-      href="https://www.soloesunclick.com/" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      className="hover:text-white transition underline underline-offset-4 decoration-dotted"
-    >
-      Sitio web desarrollado por <strong>SoloesunClick</strong>
-    </a>
-  </div>
-</div>
+      </div>
 
-      
+      {/* Barra inferior */}
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-white/60 text-sm">
+              © {new Date().getFullYear()} Emermédica. Todos los derechos reservados.
+            </p>
+            <p className="text-white/40 text-xs">
+              Sitio web desarrollado por{' '}
+              <a 
+                href="https://www.soloesunclick.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-white/60 transition-colors"
+              >
+                SoloesunClick
+              </a>
+            </p>      
+          </div>
+        </div>
       </div>
     </footer>
   );
