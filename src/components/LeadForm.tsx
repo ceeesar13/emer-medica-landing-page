@@ -104,22 +104,7 @@ const LeadForm: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Primero validamos el CAPTCHA con el backend
-      const captchaResponse = await fetch('https://n8n2-n8n.bd7xhy.easypanel.host/webhook/verify-captcha', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          captchaToken: captchaValue,
-        }),
-      });
-
-      if (!captchaResponse.ok) {
-        throw new Error('Error en la validación del CAPTCHA');
-      }
-
-      // Si el CAPTCHA es válido, enviamos el formulario
+      // Enviamos el formulario directamente al webhook de n8n
       const response = await fetch('https://n8n2-n8n.bd7xhy.easypanel.host/webhook/formsiempremermedica', {
         method: 'POST',
         headers: {
@@ -349,10 +334,15 @@ const LeadForm: React.FC = () => {
                 aria-label="Verificación de seguridad"
               >
                 <ReCAPTCHA
-                  sitekey="6LeaejorAAAAAMnRhP2xHxsmGnjvnSurrcManmq-"
+                  sitekey="6LfGfDorAAAAAIpsb26zrtmW7RSLQickEOihN58C"
                   onChange={handleCaptchaChange}
                   theme="light"
                   size="normal"
+                  badge="bottomright"
+                  hl="es"
+                  asyncScriptOnLoad={() => {
+                    console.log('reCAPTCHA cargado correctamente');
+                  }}
                 />
               </div>
 
