@@ -12,13 +12,8 @@ import {
 } from '@/components/ui/select';
 import { motion } from 'framer-motion';
 import ReCAPTCHA from 'react-google-recaptcha';
-
-interface FormData {
-  fullName: string;
-  phone: string;
-  email: string;
-  city: string;
-}
+import { submitLeadForm } from '@/services/api';
+import { FormData } from '@/types/form';
 
 const LeadForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -104,35 +99,24 @@ const LeadForm: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Enviamos el formulario directamente al webhook de n8n
-      const response = await fetch('https://n8n2-n8n.bd7xhy.easypanel.host/webhook/formsiempremermedica', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          captchaToken: captchaValue,
-        }),
+      await submitLeadForm({
+        ...formData,
+        captchaToken: captchaValue,
       });
 
-      if (response.ok) {
-        toast.success('¡Formulario enviado con éxito!', {
-          description: 'Nos pondremos en contacto contigo pronto.',
-        });
-        setFormData({
-          fullName: '',
-          phone: '',
-          email: '',
-          city: ''
-        });
-        setCaptchaValue(null);
-      } else {
-        throw new Error('Error en la respuesta del servidor');
-      }
+      toast.success('¡Formulario enviado con éxito!', {
+        description: 'Nos pondremos en contacto contigo pronto.',
+      });
+      setFormData({
+        fullName: '',
+        phone: '',
+        email: '',
+        city: ''
+      });
+      setCaptchaValue(null);
     } catch (error) {
       toast.error('Hubo un error al enviar el formulario.', {
-        description: 'Por favor intenta de nuevo.',
+        description: error instanceof Error ? error.message : 'Por favor intenta de nuevo.',
       });
     } finally {
       setIsSubmitting(false);

@@ -8,16 +8,18 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo y descripción */}
-          <div className="space-y-6">
-            <img 
-              src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1747265883/emermedica-seeklogo_ax54ns_jxuylx.png"
-              alt="Emermedica Logo"
-              className="w-48"
-            />
+          <div className="space-y-6 text-center md:text-left">
+            <div className="flex justify-center md:justify-start">
+              <img 
+                src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1747265883/emermedica-seeklogo_ax54ns_jxuylx.png"
+                alt="Emermedica Logo"
+                className="w-48"
+              />
+            </div>
             <p className="text-white/80 text-sm leading-relaxed">
               Más de 33 años cuidando la salud de los colombianos con atención médica domiciliaria y emergencias.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex justify-center md:justify-start space-x-4">
               <a
                 href="https://www.facebook.com/profile.php?id=61575648687380"
                 target="_blank"
@@ -46,7 +48,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Enlaces rápidos */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-6">Enlaces Rápidos</h3>
             <ul className="space-y-4">
               <li>
@@ -73,20 +75,20 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contacto */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-6">Contacto</h3>
             <ul className="space-y-4">
-              <li className="flex items-start space-x-3">
+              <li className="flex items-start space-x-3 justify-center md:justify-start">
                 <Phone size={20} className="text-[#28a745] mt-1" />
                 <span className="text-white/80">Línea de atención: 324 420 8110</span>
               </li>
-              <li className="flex items-start space-x-3">
+              <li className="flex items-start space-x-3 justify-center md:justify-start">
                 <MapPin size={20} className="text-[#28a745] mt-1" />
                 <span className="text-white/80">
                 CR 19B No. 168 - 35, Bogotá D.C. Colombia
                 </span>
               </li>
-              <li className="flex items-start space-x-3">
+              <li className="flex items-start space-x-3 justify-center md:justify-start">
                 <Mail size={20} className="text-[#28a745] mt-1" />
                 <a 
                   href="mailto:servicioalcliente@siempremermedica.com" 
@@ -99,7 +101,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Legal */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-6">Legal</h3>
             <ul className="space-y-4">
               <li>
@@ -125,11 +127,11 @@ const Footer: React.FC = () => {
       {/* Barra inferior */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-white/60 text-sm">
+          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 md:gap-0">
+            <p className="text-white/60 text-sm text-center md:text-left w-full md:w-auto">
               © {new Date().getFullYear()} Emermédica. Todos los derechos reservados.
             </p>
-            <p className="text-white/40 text-xs">
+            <p className="text-white/40 text-xs text-center md:text-left w-full md:w-auto">
               Sitio web desarrollado por{' '}
               <a 
                 href="https://www.soloesunclick.com/" 

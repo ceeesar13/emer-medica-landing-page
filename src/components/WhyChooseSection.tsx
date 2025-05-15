@@ -40,6 +40,7 @@ const WhyChooseSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="text-center lg:text-left"
           >
             <h2 className="text-4xl font-bold text-[#003366] mb-6">
               ¿Por qué elegir Emermédica?
@@ -57,12 +58,12 @@ const WhyChooseSection: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-start space-x-4"
+                  className="flex items-start space-x-4 justify-center lg:justify-start"
                 >
                   <div className="flex-shrink-0">
                     <CheckCircle2 className="w-6 h-6 text-[#28a745]" />
                   </div>
-                  <div>
+                  <div className="text-center lg:text-left">
                     <h3 className="font-semibold text-[#003366] mb-1">
                       {reason.title}
                     </h3>
@@ -81,7 +82,7 @@ const WhyChooseSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative flex justify-center lg:justify-start"
           >
             <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
               <img

@@ -18,10 +18,11 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0">
         <img
           src="https://res.cloudinary.com/dl4buqfbp/image/upload/v1745864458/banner_eczayj.png"
-          alt="Emermédica - Atención médica inmediata en casa y online 24/7"
+          alt="Emermédica - Atención médica inmediata"
           className="w-full h-full object-cover"
           loading="eager"
           fetchPriority="high"
+          {...{ 'data-fetchpriority': 'high' }}
         />
       </div>
 

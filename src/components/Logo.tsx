@@ -15,6 +15,7 @@ const Logo: React.FC<LogoProps> = ({ className }) => {
         className="h-full w-auto"
         loading="eager"
         fetchPriority="high"
+        {...{ 'data-fetchpriority': 'high' }}
       />
     </div>
   );
