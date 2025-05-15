@@ -121,7 +121,7 @@ const HeroSection: React.FC = () => {
               onClick={scrollToForm}
               className="bg-[#28a745] hover:bg-[#28a745]/90 text-white font-bold px-6 md:px-8 py-5 md:py-6 text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#28a745]/60 focus:ring-offset-2 w-full md:w-auto"
             >
-              COTIZA TU PLAN INTEGRAL
+              SOLICITAR ASESORÍA GRATUITA
             </Button>
 
             <Button
@@ -133,7 +133,7 @@ const HeroSection: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                CONTACTA UN ASESOR
+                CONOCE MÁS DE NUESTROS PLANES
               </a>
             </Button>
           </motion.div>

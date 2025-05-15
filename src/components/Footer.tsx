@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#lead-form" className="text-white/80 hover:text-white transition-colors">
-                  Afíliate ahora
+                  Solicitar asesoría
                 </a>
               </li>
             </ul>

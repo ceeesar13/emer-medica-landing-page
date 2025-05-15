@@ -142,9 +142,9 @@ const LeadForm: React.FC = () => {
               id="form-title"
               className="text-4xl font-bold text-[#003366] mb-4"
             >
-              ¡Afíliate a Emermédica hoy!
+              Recibe Atención Personalizada
             </h2>
-            <p className="text-xl text-gray-700">Completa el formulario y un asesor se pondrá en contacto contigo.</p>
+            <p className="text-xl text-gray-700">Déjanos tus datos y un asesor experto te contactará sin compromiso para explicarte nuestros planes y resolver todas tus dudas sobre los servicios de Emermédica.</p>
           </div>
 
           <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-[#003366]/10 relative overflow-hidden">
@@ -338,7 +338,7 @@ const LeadForm: React.FC = () => {
                   className="w-full h-16 bg-gradient-to-r from-[#28a745] to-[#28a745]/90 hover:from-[#28a745]/90 hover:to-[#28a745] text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 focus:ring-2 focus:ring-[#28a745]/20 focus:outline-none"
                   aria-busy={isSubmitting}
                 >
-                  {isSubmitting ? 'Enviando...' : 'AFÍLIATE AHORA'}
+                  {isSubmitting ? 'Enviando...' : 'QUIERO QUE UN ASESOR ME CONTACTE'}
                 </Button>
                 <div 
                   className="flex items-center justify-center text-gray-700 text-sm mt-4 text-center"

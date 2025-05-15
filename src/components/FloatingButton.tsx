@@ -37,7 +37,7 @@ const FloatingButton: React.FC = () => {
           className="mb-3 w-max max-w-[200px] md:max-w-[250px] bg-white text-[#003366] px-4 py-2 rounded-lg shadow-lg text-sm font-medium text-center whitespace-pre-line border border-[#28a745]/20"
           style={{ zIndex: 100 }}
         >
-          ¡Afíliate ahora y obtén un 20% de descuento!
+          ¡Solicita tu asesoría gratuita y conoce todos los beneficios!
         </motion.div>
         <motion.button
           onClick={scrollToForm}
